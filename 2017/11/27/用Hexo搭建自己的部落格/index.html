@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('img/bgImage.jpeg')
+            background-image: url('bgImage.jpeg')
             /*post*/
         
     }
@@ -85,6 +85,10 @@
                 
                     <div class="post-heading">
                         <div class="tags">
+                            
+                              <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
+                            
+                              <a class="tag" href="/tags/#blog" title="blog">blog</a>
                             
                         </div>
                         <h1>用Hexo搭建自己的部落格</h1>
@@ -212,9 +216,8 @@
 <p>想要用 Hexo 自己搭一個部落格完全是心血來潮，花了一天的時間終於完成了，還滿有成就感的！原本就有寫部落格的習慣，一開始在 Wordpress、後來被 Medium 簡潔的介面吸引過去，直到現在嘗試用 Hexo + Github 來搭建一個屬於自己的部落格。</p>
 <p>Hexo 是一個<strong>靜態的部落格生成器</strong>，能把我們使用 Markdown 語法寫好的文章生成方便瀏覽的網頁，同時提供了<strong>部署</strong>的功能，因此我們可以方便地將它部署到 Github 上。而 Github 這裡當作靜態檔案的伺服器，託管由 Hexo 生成的網頁。</p>
 <h2><span id="hexo建站">Hexo建站</span></h2>
-<h4><span id="安裝-hexo">安裝 Hexo</span></h4>
-<p>參考 <a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo 文件</a>，先安裝好 node.js 和 Git ，然後在 terminal 直接安裝即可：</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`npm install hexo-cli -g`</span><br></pre></td></tr></table></figure>
+<p>首先要安裝 Hexo，參考 <a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo 文件</a>，先安裝好 node.js 和 Git ，然後在 terminal 直接安裝即可：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
 <p>接著：</p>
 <ol>
 <li>任何地方建立一個 <code>your_name.github.io</code> 的資料夾</li>
@@ -228,7 +231,7 @@
 <li>在 Ｇithub 上建立一個新的 repository，repository 的名字要是 <code>your_name.gitgub.io</code>，<code>your_name</code> 是 Github 的用戶名</li>
 <li>Hexo 提供了 <code>hexo deploy</code> 的指令，可以輕鬆地把整個 public 檔案夾部署到 Github 上。必須先安裝 <code>hexo-deployer-git</code> 套件，在 terminal 輸入：</li>
 </ol>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`npm install hexo-deployer-git --save`</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>在 <code>_config.yml</code> 最後面，修改以下：</li>
 </ol>
@@ -253,6 +256,9 @@
 <h2><span id="總結">總結</span></h2>
 <p>整個搭建的過程不會太複雜，只是有時候遇到 error 就卡個半天，像我在安裝 hexo 的時候一直有權限的問題，無法成功安裝。不過主要的搭建過程都算容易，另外文中沒有提到更換主題，我使用的模板是:  <a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">hexo-theme-beantech</a>，滿好看、客製化上訂也很方便。寫 Markdown 文章我是使用 <a href="https://typora.io" target="_blank" rel="noopener">Typora</a>，免費、使用起來也方便。</p>
 <p>希望之後再寫文章的同時也能有更多新發現啦！</p>
+<h2><span id="參考資料">參考資料</span></h2>
+<p><a href="http://lowrank.science/Hexo-Github/" target="_blank" rel="noopener">知行合一 | 用 Hexo 搭建博客</a><br>
+<a href="https://oawan.me/2016/easy-hexo-easy-blog/" target="_blank" rel="noopener">快速上手 Hexo 網誌框架</a></p>
 
                 
 
@@ -288,7 +294,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Hexo建站</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.0.1.</span> <span class="toc-nav-text">安裝 Hexo</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">部署到 Github</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">設定網域名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">總結</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Hexo建站</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">部署到 Github</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">設定網域名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">總結</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">參考資料</span></a></li></ol>
         
         </div>
       </aside>
@@ -308,6 +314,10 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
+                        
+                          <a class="tag" href="/tags/#blog" title="blog">blog</a>
+                        
                     </div>
                 </section>
                 
