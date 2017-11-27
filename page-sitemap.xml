@@ -14,14 +14,14 @@
     </url>
     
     <url>
-        <loc>http://ronyeh.me/archive/</loc>
+        <loc>http://ronyeh.me/about/</loc>
         <lastmod>2017-11-26T16:55:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://ronyeh.me/about/</loc>
+        <loc>http://ronyeh.me/archive/</loc>
         <lastmod>2017-11-26T16:55:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
