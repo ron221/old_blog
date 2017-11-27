@@ -3,17 +3,12 @@
 
     <sitemap>
         <loc>http://ronyeh.me/post-sitemap.xml</loc>
-        <lastmod>2017-11-26T16:55:01.000Z</lastmod>
+        <lastmod>2017-11-27T16:30:14.000Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://ronyeh.me/page-sitemap.xml</loc>
         <lastmod>2017-11-27T06:57:38.000Z</lastmod>
-    </sitemap>
-
-    <sitemap>
-        <loc>http://ronyeh.me/tag-sitemap.xml</loc>
-        <lastmod>2017-11-26T16:55:01.000Z</lastmod>
     </sitemap>
 
 </sitemapindex>
