@@ -224,11 +224,11 @@
 <li>在 terminal 用 <code>cd</code> 進到該資料夾</li>
 <li>terminal 執行 <code>hexo init</code> ，初始化部落格的環境</li>
 <li>terminal 執行 <code>npm install</code> 安裝好環境</li>
-<li>這時在 terinal 執行 <code>hexo server</code>，就可以在 local:4000 看到網站了</li>
+<li>這時在 terinal 執行 <code>hexo server</code>，就可以在本地 local:4000 看到網站了</li>
 </ol>
 <h2><span id="部署到-github">部署到 Github</span></h2>
 <ol>
-<li>在 Ｇithub 上建立一個新的 repository，repository 的名字要是 <code>your_name.gitgub.io</code>，<code>your_name</code> 是 Github 的用戶名</li>
+<li>在 Github 上建立一個新的 repository，repository 的名字要是 <code>your_name.gitgub.io</code>，<code>your_name</code> 是 Github 的用戶名</li>
 <li>Hexo 提供了 <code>hexo deploy</code> 的指令，可以輕鬆地把整個 public 檔案夾部署到 Github 上。必須先安裝 <code>hexo-deployer-git</code> 套件，在 terminal 輸入：</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
@@ -244,7 +244,7 @@
 <li>這時候！到網址 your_name.github.io 就能看到自己的網站啦！</li>
 </ol>
 <h2><span id="設定網域名">設定網域名</span></h2>
-<p>因為是心血來潮想建部落格，所以連網域名都買了一個！我是在 <a href="https://www.gandi.net/en" target="_blank" rel="noopener">Godaddy</a> 上買的，還有 Gandi、阿里云很多其他的網站上可以買，甚至有比價網站可以先查一下再買。花了兩年兩萬韓元的價格，台幣約 500 塊，其實還有很多更便宜的，但想說還是不要買太奇怪、太長的名字，於是買了個 <code>.me</code> 的。</p>
+<p>因為是心血來潮想建部落格，所以連網域名也順便買了一個！我是在 <a href="https://www.gandi.net/en" target="_blank" rel="noopener">Godaddy</a> 上買的，還有 Gandi、阿里云很多其他的網站上可以買，甚至有比價網站可以先查一下再買。花了兩年兩萬韓元的價格，台幣約 500 塊，其實還有很多更便宜的，但想說還是不要買太奇怪、太長的名字，於是買了個 <code>.me</code> 的。</p>
 <ol>
 <li>在 <code>source</code> 的文件夾裡新增一個叫 CNAME 的檔案，裡面指加上一行網域名即可： <code>ronyeh.me</code>。用來告訴 Github <code>your_name.github.io</code>是對應到哪個網域名</li>
 <li>生成內容、部署到 Github</li>
@@ -254,8 +254,8 @@
 <li>最後在 Godaddy 網站上完成設定即可</li>
 </ol>
 <h2><span id="總結">總結</span></h2>
-<p>整個搭建的過程不會太複雜，只是有時候遇到 error 就卡個半天，像我在安裝 hexo 的時候一直有權限的問題，無法成功安裝。不過主要的搭建過程都算容易，另外文中沒有提到更換主題，我使用的模板是:  <a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">hexo-theme-beantech</a>，滿好看、客製化上訂也很方便。寫 Markdown 文章我是使用 <a href="https://typora.io" target="_blank" rel="noopener">Typora</a>，免費、使用起來也方便。</p>
-<p>希望之後再寫文章的同時也能有更多新發現啦！</p>
+<p>整個搭建的過程不會太複雜，只是有時候遇到 error 就卡個半天，像我在安裝 hexo 的時候一直有權限的問題，無法成功安裝。不過主要的搭建過程都算容易，另外文中沒有提到更換主題，我使用的模板是:  <a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">hexo-theme-beantech</a>，簡潔好看、客製化設定容易。寫 Markdown 文章我是使用 <a href="https://typora.io" target="_blank" rel="noopener">Typora</a>，免費、使用起來也方便。但覺得 Markdown 語法寫的習慣後，可以直接用 Atom 編輯。</p>
+<p>希望之後在寫文章的同時也能有更多新發現啦！</p>
 <h2><span id="參考資料">參考資料</span></h2>
 <p><a href="http://lowrank.science/Hexo-Github/" target="_blank" rel="noopener">知行合一 | 用 Hexo 搭建博客</a><br>
 <a href="https://oawan.me/2016/easy-hexo-easy-blog/" target="_blank" rel="noopener">快速上手 Hexo 網誌框架</a></p>
