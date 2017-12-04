@@ -138,14 +138,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -226,7 +226,7 @@
 <p>用 Excel 打開檔案後可以看到，總共有三欄，分別是 <code>留言時間</code>、<code>留言內容</code>、<code>留言ID</code>。這裡我們要做的是<strong>從留言內容中抓出 email</strong>，程式如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 打開空白的 email.txt 用來寫入抓到的 email</span></span><br><span class="line">f = open(<span class="string">'email.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打開csv檔，並把第二列中的所有「留言內容」存在 email_list這個list中</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'new.csv'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    email_list = [row[<span class="number">1</span>] <span class="keyword">for</span> row <span class="keyword">in</span> csv.reader(f)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 從留言內容中找出符合 email 格式的字串</span></span><br><span class="line"><span class="keyword">for</span> str <span class="keyword">in</span> str_list:</span><br><span class="line">    e = re.findall(<span class="string">r'[\w\.-]+@[\w\.-]+'</span>,str)</span><br><span class="line">    <span class="comment"># 若有找到，將找到的 email 寫入 email.txt</span></span><br><span class="line">    <span class="keyword">if</span> e:</span><br><span class="line">        f.write(e[<span class="number">0</span>] + <span class="string">"\n"</span>)</span><br><span class="line"><span class="comment"># 最後關閉 csv檔</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
 <h2><span id="後記">後記</span></h2>
-<p>如此一來就節省很多時間了，<code>email.txt</code>中列出了所以留言裡面的 email，但如果其它字元是<strong>直接連著email</strong>，會同是被抓下來，像是檔案裡還是有一些<code>ronyeh@gmail.com입니다</code>這種狀況，這個部分要再修改一下<code>re.findall</code>那個地方的程式碼，把非英文的字元也過濾掉。還沒完全完成，但先簡單記錄一下步驟啦。<br>
+<p>如此一來就節省很多時間了，<code>email.txt</code>中列出了所以留言裡面的 email，但如果其它字元是<strong>直接連著email</strong>，會同時被寫進去，像是檔案裡還是有一些<code>ronyeh@gmail.com입니다</code>這種狀況，這個部分要再修改一下<code>re.findall</code>那個地方的程式碼，把非英文的字元也過濾掉。還沒完全完成，但先簡單記錄一下步驟啦。<br>
 另外，希望能把前面的那些取得 csv 的步驟自動化，之後再研究吧。</p>
 
                 
