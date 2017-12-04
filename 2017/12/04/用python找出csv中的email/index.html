@@ -138,14 +138,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -209,7 +209,8 @@
                 post-container">
 
                 <h2><span id="前言">前言</span></h2>
-<p>因為閒置的粉絲團舉辦了一個<a href="https://www.facebook.com/passionatekudos/posts/1603333706371708" target="_blank" rel="noopener">贈送 ppt 模板的活動</a>，只要留言自己的信箱就會把模板寄給你，非常佛心的一個活動。用 facebook 的 API 把留言全部抓下來、轉換成 csv 檔案在 Excel 中開啟不會太麻煩，但大部分的留言卻不只包含了 email，還有一堆表情符號、感謝的話(감사합니다)、或是 tag 別人告訴好康之類…，手動整理一千多則留言非常費時，於是就決定用 python 來幫忙啦。</p>
+<p>因為閒置的粉絲團舉辦了一個<a href="https://www.facebook.com/passionatekudos/posts/1603333706371708" target="_blank" rel="noopener">贈送 ppt 模板的活動</a>，只要留言自己的信箱就會把模板寄給你，非常佛心的一個活動。不可能一個一個留言把email複製下來，於是就想辦法省力一點的完成它吧！<br>
+首先，用 facebook 的 API 把留言全部抓下來、轉換成 csv 檔案這個步驟不會太麻煩。然而，大部分的留言卻不只包含了 email，還有一堆表情符號、感謝的話(감사합니다)、或是 tag 別人告訴好康之類…，手動整理一千多則留言非常費時，於是就決定用 python 來幫忙。</p>
 <h2><span id="graph-api-explorer-取得留言">Graph API Explorer 取得留言</span></h2>
 <p>首先到 FB <a href="https://developers.facebook.com/tools/explorer/" target="_blank" rel="noopener">developer page 的 Graph API Explorer</a>, 前提是要有 FB developer 的帳號，就可以直接點選 <code>Get Token</code> 取得 Token。接著在下面的欄位中填上粉專的 ID、指定貼文的 ID:<br>
 <img src="./graphAPI.png" alt="粉專ID_貼文ID/comments"></p>
