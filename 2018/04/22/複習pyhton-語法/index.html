@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          抓下 FB 粉絲團留言中的 email - Ron&#39;s blog
+          複習pyhton 語法 - Ron&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://ronyeh.me/2017/12/04/用python找出csv中的email/">
+    <link rel="canonical" href="http://ronyeh.me/2018/04/22/複習pyhton-語法/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,12 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#python" title="python">python</a>
+                            
                         </div>
-                        <h1>抓下 FB 粉絲團留言中的 email</h1>
-                        <h2 class="subheading">節省了很多時間啊</h2>
+                        <h1>複習pyhton 語法</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Ron Yeh on
-                            2017-12-04
+                            2018-04-22
                         </span>
                     </div>
                 
@@ -208,26 +210,50 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2><span id="前言">前言</span></h2>
-<p>因為閒置的粉絲團舉辦了一個<a href="https://www.facebook.com/passionatekudos/posts/1603333706371708" target="_blank" rel="noopener">贈送 ppt 模板的活動</a>，只要留言自己的信箱就會把模板寄給你，非常佛心的一個活動。不可能一個一個留言把email複製下來，於是就想辦法省力一點的完成它吧！<br>
-首先，用 facebook 的 API 把留言全部抓下來、轉換成 csv 檔案這個步驟不會太麻煩。然而，大部分的留言卻不只包含了 email，還有一堆表情符號、感謝的話(감사합니다)、或是 tag 別人告訴好康之類…，手動整理一千多則留言非常費時，於是就決定用 python 來幫忙。</p>
-<h2><span id="graph-api-explorer-取得留言">Graph API Explorer 取得留言</span></h2>
-<p>首先到 FB <a href="https://developers.facebook.com/tools/explorer/" target="_blank" rel="noopener">developer page 的 Graph API Explorer</a>, 前提是要有 FB developer 的帳號，就可以直接點選 <code>Get Token</code> 取得 Token。接著在下面的欄位中填上粉專的 ID、指定貼文的 ID:<br>
-<img src="./graphAPI.png" alt="粉專ID_貼文ID/comments"><br>
-<strong>粉專的 ID 在關於裡面可以找到，貼文 ID 則是在貼文頁面的網址最後的一串數字</strong><br>
-然後因為這裡要取得的是貼文的留言，因此在後面加上 <code>/comments</code>。<br>
-完成以後點擊<code>Submit</code>就會開始抓下所有這篇貼文底下的留言了。可以看到結果如下，用 json呈現：<br>
-<img src="./success.png" alt="成功抓下來的留言"></p>
-<h2><span id="將結果儲存成-excel-csv檔">將結果儲存成 Excel （csv檔）</span></h2>
-<p>在同個頁面的下方，點選 <code>Get Code</code>-&gt;<code>cURL</code>，將網址複製下來。<br>
-<img src="./cURL.png" alt="複製 cURL"><br>
-然後使用<a href="http://www.convertcsv.com/json-to-csv.htm" target="_blank" rel="noopener">能把 json 轉換成 csv 的網站</a>，把 csv 下載下來。就成功拿到所有留言的 csv 檔了！</p>
-<h2><span id="從-csv中-抓出-email">從 csv中 抓出 email</span></h2>
-<p>用 Excel 打開檔案後可以看到，總共有三欄，分別是 <code>留言時間</code>、<code>留言內容</code>、<code>留言ID</code>。這裡我們要做的是<strong>從留言內容中抓出 email</strong>，程式如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 打開空白的 email.txt 用來寫入抓到的 email</span></span><br><span class="line">f = open(<span class="string">'email.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打開csv檔，並把第二列中的所有「留言內容」存在 email_list這個list中</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'new.csv'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    email_list = [row[<span class="number">1</span>] <span class="keyword">for</span> row <span class="keyword">in</span> csv.reader(f)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 從留言內容中找出符合 email 格式的字串</span></span><br><span class="line"><span class="keyword">for</span> str <span class="keyword">in</span> str_list:</span><br><span class="line">    e = re.findall(<span class="string">r'[\w\.-]+@[\w\.-]+'</span>,str)</span><br><span class="line">    <span class="comment"># 若有找到，將找到的 email 寫入 email.txt</span></span><br><span class="line">    <span class="keyword">if</span> e:</span><br><span class="line">        f.write(e[<span class="number">0</span>] + <span class="string">"\n"</span>)</span><br><span class="line"><span class="comment"># 最後關閉 csv檔</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-<h2><span id="後記">後記</span></h2>
-<p>如此一來就節省很多時間了，<code>email.txt</code>中列出了所以留言裡面的 email，但如果其它字元是<strong>直接連著email</strong>，會同時被寫進去，像是檔案裡還是有一些<code>ronyeh@gmail.com입니다</code>這種狀況，這個部分要再修改一下<code>re.findall</code>那個地方的程式碼，把非英文的字元也過濾掉。還沒完全完成，但先簡單記錄一下步驟啦。<br>
-另外，希望能把前面的那些取得 csv 的步驟自動化，之後再研究吧。</p>
+                <p>##前言<br>
+因為最近在準備面試，發現太久沒有用 python，忘的有點乾淨。這篇文章就筆記一下常常忘記的東西。</p>
+<p>##算術運算符</p>
+<ol>
+<li>除 /</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span> / <span class="number">3</span>   <span class="comment">#得到3</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>餘數 %</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span> % <span class="number">2</span>   <span class="comment">#得到1</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>指數 **</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span> ** <span class="number">2</span>  <span class="comment">#得到36</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>除（無條件捨去）//</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span> // <span class="number">2</span>   <span class="comment">#得到4</span></span><br></pre></td></tr></table></figure>
+<p>##迴圈</p>
+<ol>
+<li>while 語法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> x &lt; <span class="number">6</span>:</span><br><span class="line">  print(x)</span><br><span class="line">  x = x + <span class="number">1</span></span><br><span class="line">print(<span class="string">"Goodbye"</span>)</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="string">"Goodbye"</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>for 語法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">6</span>):</span><br><span class="line">  print(x)</span><br><span class="line">print(<span class="string">"Goodbye"</span>)</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="string">"Goodbye"</span></span><br></pre></td></tr></table></figure>
+<p>###range 筆記###</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">9</span>): <span class="comment">#從 0 到 8，不包含 9</span></span><br><span class="line">  print(i)           <span class="comment">#0,1,2,3,4,5,6,7,8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">9</span>):  <span class="comment">#省略開始的數，預設是從 0 開始。所以也是從 0 到 8，不包含 9</span></span><br><span class="line">  print(i)          <span class="comment">#0,1,2,3,4,5,6,7,8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>, <span class="number">9</span>): <span class="comment">#從 3 開始，不含9</span></span><br><span class="line">  print(i)            <span class="comment">#3,4,5,6,7,8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">10</span>,<span class="number">4</span>):  <span class="comment">#從 3 開始到 9，每次間隔 4</span></span><br><span class="line">  print(i)               <span class="comment">#3,7</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>break<br>
+直接跳出迴圈</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">  print(i)</span><br><span class="line">  <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  print(<span class="string">"done"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#結果：</span></span><br><span class="line"><span class="comment"># 0, 1, 2, 3, "done"</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>continue<br>
+回到迴圈的開始，繼續下一個數</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line">  print(i)</span><br><span class="line">print(done)</span><br><span class="line"></span><br><span class="line"><span class="comment">#結果：</span></span><br><span class="line"><span class="comment"># 1, 3, 5, 7, 9, "done"</span></span><br></pre></td></tr></table></figure>
 
                 
 
@@ -235,13 +261,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/04/22/複習pyhton-語法/" data-toggle="tooltip" data-placement="top" title="複習pyhton 語法">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/27/用Hexo搭建自己的部落格/" data-toggle="tooltip" data-placement="top" title="用Hexo搭建自己的部落格">Next Post &rarr;</a>
+                            <a href="/2017/12/04/用python找出csv中的email/" data-toggle="tooltip" data-placement="top" title="抓下 FB 粉絲團留言中的 email">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -271,7 +293,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Graph API Explorer 取得留言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">將結果儲存成 Excel （csv檔）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">從 csv中 抓出 email</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">後記</span></a></li></ol>
+          <ol class="nav">none</ol>
         
         </div>
       </aside>
@@ -291,6 +313,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#python" title="python">python</a>
+                        
                     </div>
                 </section>
                 
@@ -324,8 +348,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "ronyeh";
-    var disqus_identifier = "http://ronyeh.me/2017/12/04/用python找出csv中的email/";
-    var disqus_url = "http://ronyeh.me/2017/12/04/用python找出csv中的email/";
+    var disqus_identifier = "http://ronyeh.me/2018/04/22/複習pyhton-語法/";
+    var disqus_url = "http://ronyeh.me/2018/04/22/複習pyhton-語法/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
