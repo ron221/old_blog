@@ -140,14 +140,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -210,9 +210,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>##前言<br>
-因為最近在準備面試，發現太久沒有用 python，忘的有點乾淨。這篇文章就筆記一下常常忘記的東西。</p>
-<p>##算術運算符</p>
+                <h2><span id="前言">前言</span></h2>
+<p>因為最近在準備面試，發現太久沒有用 python，忘的有點乾淨。這篇文章就筆記一下常常忘記的東西。</p>
+<h2><span id="算術運算符">算術運算符</span></h2>
 <ol>
 <li>除 /</li>
 </ol>
@@ -229,7 +229,7 @@
 <li>除（無條件捨去）//</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span> // <span class="number">2</span>   <span class="comment">#得到4</span></span><br></pre></td></tr></table></figure>
-<p>##迴圈</p>
+<h2><span id="迴圈">迴圈</span></h2>
 <ol>
 <li>while 語法</li>
 </ol>
@@ -242,7 +242,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">6</span>):</span><br><span class="line">  print(x)</span><br><span class="line">print(<span class="string">"Goodbye"</span>)</span><br></pre></td></tr></table></figure>
 <p>結果：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="string">"Goodbye"</span></span><br></pre></td></tr></table></figure>
-<p>###range 筆記###</p>
+<h3><span id="range-筆記">range 筆記</span></h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">9</span>): <span class="comment">#從 0 到 8，不包含 9</span></span><br><span class="line">  print(i)           <span class="comment">#0,1,2,3,4,5,6,7,8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">9</span>):  <span class="comment">#省略開始的數，預設是從 0 開始。所以也是從 0 到 8，不包含 9</span></span><br><span class="line">  print(i)          <span class="comment">#0,1,2,3,4,5,6,7,8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>, <span class="number">9</span>): <span class="comment">#從 3 開始，不含9</span></span><br><span class="line">  print(i)            <span class="comment">#3,4,5,6,7,8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">10</span>,<span class="number">4</span>):  <span class="comment">#從 3 開始到 9，每次間隔 4</span></span><br><span class="line">  print(i)               <span class="comment">#3,7</span></span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>break<br>
@@ -293,7 +293,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">算術運算符</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">迴圈</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">range 筆記</span></a></li></ol></li></ol>
         
         </div>
       </aside>
